@@ -6,6 +6,7 @@ const axios = require('axios');
 const router = express.Router();
 
 router.post('/chat', auth, async (req, res) => {
+  console.log("AI CHAT ROUTE HIT");
   try {
     const { question } = req.body;
 
@@ -16,7 +17,7 @@ router.post('/chat', auth, async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "openai/gpt-3.5-turbo",
+        model: "openai/gpt-4o-mini",
         messages: [
           {
             role: "user",
